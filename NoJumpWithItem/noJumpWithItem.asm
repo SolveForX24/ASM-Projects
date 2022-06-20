@@ -5,9 +5,6 @@
 
 !InputByte = #%10000000
 
-init:
-	LDA #$00
-	STA $14AF	
 main:
 	LDA $148F			;\ If holding item
 	BNE .holdingItem	;| go to disable jump.
