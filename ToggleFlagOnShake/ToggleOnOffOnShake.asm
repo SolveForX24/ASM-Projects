@@ -15,7 +15,7 @@ main:
 	CMP #$01
 	BCS .shaking		;if so, then branch to .shaking
 
-	LDA #$01
+	LDA #$01 ; if not shaking, set flag to active
 	STA !flag
 	RTL
 	
@@ -29,7 +29,7 @@ main:
 .swap
 	STA $1DF9	;play sound
 	LDA $14AF|!addr	;\
-	EOR #$40		;| flip On/Off ram address
+	EOR #$40		;| flip ram address
 	STA $14AF|!addr	;/
 
 	; Set custom flag to off
