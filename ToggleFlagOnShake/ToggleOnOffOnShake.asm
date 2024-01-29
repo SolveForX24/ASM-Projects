@@ -4,7 +4,7 @@
 
 init:
 	LDA #$00
-	STA $14AF
+	STA !switch
 
 	LDA #$01
 	STA !flag
@@ -28,9 +28,9 @@ main:
 
 .swap
 	STA $1DF9	;play sound
-	LDA $14AF|!addr	;\
+	LDA !switch|!addr	;\
 	EOR #$40		;| flip ram address
-	STA $14AF|!addr	;/
+	STA !switch|!addr	;/
 
 	; Set custom flag to off
 	LDA #$00
